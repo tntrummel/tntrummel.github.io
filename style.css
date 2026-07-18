@@ -161,7 +161,8 @@ nav.greedy a[aria-current="page"] {
 /* ---------- footer ---------- */
 
 .page-footer {
-  border-top: 1px solid var(--border);
+  background: #e8efe6;
+  border-top: 1px solid #d5e0d2;
   margin-top: 2em;
 }
 .page-footer-inner {
