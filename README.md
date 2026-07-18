@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV — Taylor N. Trummel</title>
+<meta name="description" content="Curriculum vitae of Taylor N. Trummel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="site-inner">
+    <a class="wordmark" href="index.html">Taylor N. Trummel</a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="cv.html" aria-current="page">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>CV</h1>
+
+  <div class="cv-card">
+    <p class="eyebrow">Curriculum Vitae</p>
+    <p>Last updated July 2026</p>
+    <a class="button" href="files/cv_trummel_0726.pdf">Download CV (PDF)</a>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="footer-inner">
+    <div>
+      <strong>Taylor N. Trummel</strong><br>
+      Denison University<br>
+      Politics &amp; Public Affairs<br>
+      Knapp Hall, Office 305G<br>
+      trummelt [at] denison.edu
+    </div>
+    <div class="footer-links">
+      <a href="mailto:trummelt@denison.edu">Email</a>
+      <a href="https://twitter.com/tntrummel">Twitter</a>
+      <a href="https://bsky.app/profile/tntrummel.bsky.social">Bluesky</a>
+      <a href="https://www.linkedin.com/in/taylortrummel">LinkedIn</a><br>
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=2SobN2UAAAAJ">Google Scholar</a>
+      <a href="https://osf.io/j8yth/">OSF</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

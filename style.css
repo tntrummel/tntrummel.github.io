@@ -1,0 +1,44 @@
+# tntrummel.github.io
+
+Personal academic website for Taylor N. Trummel. Plain HTML/CSS, no build step, hosted free on GitHub Pages.
+
+## Before publishing: add two files
+
+1. **Photo**: save your headshot as `images/profile.jpg` (the one from your WordPress site works fine). If the file is missing, the page simply hides the image, so nothing breaks in the meantime.
+2. **CV**: save your CV PDF as `files/cv_trummel_0726.pdf` (or rename it and update the link in `cv.html`).
+
+3. **Evals and replication files**: the Teaching and Research pages now link to local copies. Download these from WordPress and place them in `files/` with these exact names:
+   - `trummel_evals_summer24_instructor.pdf`
+   - `trummel_evals_fall2025_introampol.pdf`
+   - `trummel_evals_winter25_minoritypolitics.pdf`
+   - `immigrant-linked-fate-replication-files.zip`
+
+## Publish on GitHub Pages
+
+1. Log in to GitHub as `tntrummel` and create a new **public** repository named exactly `tntrummel.github.io`.
+2. Upload everything in this folder to the repository (drag and drop on github.com works, or use git):
+
+   ```
+   git clone https://github.com/tntrummel/tntrummel.github.io.git
+   cp -r /path/to/this/folder/* tntrummel.github.io/
+   cd tntrummel.github.io
+   git add .
+   git commit -m "Initial site"
+   git push
+   ```
+
+3. That's it. Within a minute or two the site is live at **https://tntrummel.github.io**. (For a repo named `username.github.io`, Pages is enabled automatically; if not, go to Settings > Pages and set the source to the `main` branch.)
+
+## Use your custom domain (tntrummel.com)
+
+Optional, once you're ready to move off WordPress:
+
+1. In the repo, create a file named `CNAME` containing one line: `tntrummel.com`
+2. At your domain registrar, point the domain at GitHub Pages:
+   - Four A records for `tntrummel.com`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - A CNAME record for `www` pointing to `tntrummel.github.io`
+3. In the repo Settings > Pages, enter `tntrummel.com` under Custom domain and enable "Enforce HTTPS" once the certificate is issued.
+
+## Editing later
+
+Each page is a standalone HTML file (`index.html`, `research.html`, `teaching.html`, `cv.html`) sharing one stylesheet (`style.css`). To add a new paper, copy an existing `<li>` block in `research.html` and edit the title, tag, and links. Colors and fonts are set in the `:root` block at the top of `style.css` (the green is a nod to your Madrid Beamer theme).
