@@ -1,44 +1,172 @@
-# tntrummel.github.io
+/* Taylor N. Trummel — academicpages-style layout */
 
-Personal academic website for Taylor N. Trummel. Plain HTML/CSS, no build step, hosted free on GitHub Pages.
+:root {
+  --text: #494e52;
+  --heading: #414141;
+  --link: #2f6f9f;
+  --link-hover: #205070;
+  --border: #f2f3f3;
+  --border-dark: #dcdcdc;
+  --muted: #7a8288;
+  --max: 1100px;
+}
 
-## Before publishing: add two files
+* { box-sizing: border-box; }
 
-1. **Photo**: save your headshot as `images/profile.jpg` (the one from your WordPress site works fine). If the file is missing, the page simply hides the image, so nothing breaks in the meantime.
-2. **CV**: save your CV PDF as `files/cv_trummel_0726.pdf` (or rename it and update the link in `cv.html`).
+body {
+  margin: 0;
+  color: var(--text);
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.6;
+}
 
-3. **Evals and replication files**: the Teaching and Research pages now link to local copies. Download these from WordPress and place them in `files/` with these exact names:
-   - `trummel_evals_summer24_instructor.pdf`
-   - `trummel_evals_fall2025_introampol.pdf`
-   - `trummel_evals_winter25_minoritypolitics.pdf`
-   - `immigrant-linked-fate-replication-files.zip`
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 
-## Publish on GitHub Pages
+/* ---------- masthead ---------- */
 
-1. Log in to GitHub as `tntrummel` and create a new **public** repository named exactly `tntrummel.github.io`.
-2. Upload everything in this folder to the repository (drag and drop on github.com works, or use git):
+.masthead {
+  border-bottom: 1px solid var(--border);
+}
+.masthead-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0.9em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4em 1.5em;
+}
+.site-title {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: var(--heading);
+}
+.site-title:hover { text-decoration: none; color: var(--link); }
+.site-subtitle {
+  display: block;
+  font-size: 0.72em;
+  font-weight: 400;
+  color: var(--muted);
+}
+nav.greedy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4em;
+  font-size: 0.95em;
+}
+nav.greedy a { color: var(--heading); padding: 0.3em 0; }
+nav.greedy a:hover { color: var(--link); text-decoration: none; }
+nav.greedy a[aria-current="page"] {
+  color: var(--link);
+  border-bottom: 2px solid var(--link);
+}
 
-   ```
-   git clone https://github.com/tntrummel/tntrummel.github.io.git
-   cp -r /path/to/this/folder/* tntrummel.github.io/
-   cd tntrummel.github.io
-   git add .
-   git commit -m "Initial site"
-   git push
-   ```
+/* ---------- layout: sidebar + content ---------- */
 
-3. That's it. Within a minute or two the site is live at **https://tntrummel.github.io**. (For a repo named `username.github.io`, Pages is enabled automatically; if not, go to Settings > Pages and set the source to the `main` branch.)
+.page-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2em 1em 3em;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.5em;
+  align-items: start;
+}
 
-## Use your custom domain (tntrummel.com)
+.sidebar {
+  font-size: 0.85em;
+  position: sticky;
+  top: 1.5em;
+}
+.author-avatar {
+  width: 175px;
+  max-width: 100%;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 0.8em;
+}
+.author-name {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: var(--heading);
+  margin: 0 0 0.2em;
+}
+.author-bio { color: var(--muted); margin: 0 0 0.8em; }
+.author-detail { margin: 0.1em 0; color: var(--text); }
+.author-links {
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
+}
+.author-links li { margin: 0.35em 0; }
+.author-links a { color: var(--text); }
+.author-links a:hover { color: var(--link); }
+.author-links .icon {
+  display: inline-block;
+  width: 1.2em;
+  color: var(--muted);
+}
 
-Optional, once you're ready to move off WordPress:
+@media (max-width: 760px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .author-avatar { width: 140px; }
+}
 
-1. In the repo, create a file named `CNAME` containing one line: `tntrummel.com`
-2. At your domain registrar, point the domain at GitHub Pages:
-   - Four A records for `tntrummel.com`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - A CNAME record for `www` pointing to `tntrummel.github.io`
-3. In the repo Settings > Pages, enter `tntrummel.com` under Custom domain and enable "Enforce HTTPS" once the certificate is issued.
+/* ---------- content ---------- */
 
-## Editing later
+.content h1 {
+  font-size: 1.9em;
+  color: var(--heading);
+  margin: 0 0 0.6em;
+  line-height: 1.2;
+}
+.content h2 {
+  font-size: 1.3em;
+  color: var(--heading);
+  margin: 1.6em 0 0.6em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--border);
+}
+.content h3 {
+  font-size: 1.05em;
+  color: var(--heading);
+  margin: 1.2em 0 0.3em;
+}
+.content p { margin: 0 0 1em; }
+.content ul { margin: 0 0 1.2em; padding-left: 1.3em; }
+.content li { margin: 0.35em 0; }
+.content li ul { margin: 0.2em 0 0.4em; }
+.content li ul li { font-size: 0.92em; color: var(--muted); }
+.role { font-style: italic; color: var(--muted); margin: 0.2em 0 0.5em; }
 
-Each page is a standalone HTML file (`index.html`, `research.html`, `teaching.html`, `cv.html`) sharing one stylesheet (`style.css`). To add a new paper, copy an existing `<li>` block in `research.html` and edit the title, tag, and links. Colors and fonts are set in the `:root` block at the top of `style.css` (the green is a nod to your Madrid Beamer theme).
+.btn {
+  display: inline-block;
+  background: var(--link);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95em;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  margin: 0.4em 0 1em;
+}
+.btn:hover { background: var(--link-hover); color: #ffffff; text-decoration: none; }
+
+/* ---------- footer ---------- */
+
+.page-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 2em;
+}
+.page-footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.2em 1em 2em;
+  font-size: 0.85em;
+  color: var(--muted);
+}
