@@ -8,6 +8,8 @@
   --border: #f2f3f3;
   --border-dark: #dcdcdc;
   --muted: #7a8288;
+  --band: #f4eee0;
+  --band-border: #e4d9c3;
   --max: 1100px;
 }
 
@@ -34,8 +36,8 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 /* ---------- masthead ---------- */
 
 .masthead {
-  background: #e8efe6;
-  border-bottom: 1px solid #d5e0d2;
+  background: var(--band);
+  border-bottom: 1px solid var(--band-border);
 }
 .masthead-inner {
   max-width: var(--max);
@@ -79,12 +81,15 @@ nav.greedy a[aria-current="page"] {
   margin: 0 auto;
   padding: 2em 1em 3em;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 1fr 220px;
   gap: 2.5em;
   align-items: start;
 }
 
+/* content on the left, sidebar on the right (regardless of DOM order) */
+.content { order: 1; }
 .sidebar {
+  order: 2;
   font-size: 0.85em;
   position: sticky;
   top: 1.5em;
@@ -186,8 +191,8 @@ nav.greedy a[aria-current="page"] {
 /* ---------- footer ---------- */
 
 .page-footer {
-  background: #e8efe6;
-  border-top: 1px solid #d5e0d2;
+  background: var(--band);
+  border-top: 1px solid var(--band-border);
   margin-top: 2em;
 }
 .page-footer-inner {
