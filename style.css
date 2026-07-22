@@ -120,8 +120,8 @@ nav.greedy a[aria-current="page"] {
 
 @media (max-width: 760px) {
   .page-wrap { grid-template-columns: 1fr; }
-  .content, .sidebar { grid-column: 1; grid-row: auto; }
-  .sidebar { position: static; }
+  .content { order: 1; }
+  .sidebar { position: static; order: 2; }
   .author-avatar { width: 140px; }
 }
 
